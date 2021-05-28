@@ -5,7 +5,7 @@
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Statistiques</span></a></li>
+		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Statistiques </span></a></li>
 
 
 		        <li id="menu-home" ><a href="index.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Gestion Incident</span></a></li>
