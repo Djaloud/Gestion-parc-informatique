@@ -13,8 +13,8 @@
 
 		        <li><a href="#"><i class="fa fa-terminal" aria-hidden="true"></i><span>Inventaire</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		            <li><a href="grids.html">Ordinateur</a></li>
-		            <li><a href="portlet.html">Logiciel</a></li>		            
+		            <li><a href="AjoutOrdinateur.php">Ordinateur</a></li>
+		            <li><a href="os_salle.php">Os & Salle</a></li>		            
 		          </ul>
 		        </li>
 

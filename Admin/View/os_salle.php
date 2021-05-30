@@ -46,118 +46,125 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
 	   <div class="mother-grid-inner">
 
-            <?php include("../Menu.php");include("../../Login/Model/ConnexionDb.php"); ?>
+            <?php include("../Menu.php") ?>
 
 
 
 
 <!--inner block start here-->
-
 <div class="inner-block">
-
 <!--market updates updates-->
-<form action="../Controller/GestionAjoutOrdinateur.php" method="POST">
    <div class="market-updates">
+      <div class="col-md-6 market-update-gd">
+        <div class="market-update-block clr-block-1">
+          <div class="col-md-8 market-update-left">
+            <h3>10</h3>
+            <h4>Nombre de salle</h4>
+            <p>la totalité des salles et amphis</p>
+          </div>
+          <div class="col-md-4 market-update-right">
+            <i class="fa fa-file-text-o"> </i>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="col-md-6 market-update-gd">
+        <div class="market-update-block clr-block-2">
+         <div class="col-md-8 market-update-left">
+          <h3>4</h3>
+          <h4>Systeme d'exploitation</h4>
+          <p>Les differentes types de systeme d'exploitation </p>
+          </div>
+          <div class="col-md-4 market-update-right">
+            <i class="fa fa-eye"> </i>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
       
-      <div class="col-md-6 form-ro market-update-gd">
-         <label for="numSerie">Numero de serie </label>
-         <input type="text" class="form-control" name="numSerie" required>
-      </div>
-
-      <div class="col-md-6 form-ro market-update-gd">
-  
-            <label for="nomOrdi">Nom d'ordinateur</label>
-            <input type="text" class="form-control" name="nomOrdi" required>
-       
-      </div>
-
        <div class="clearfix"> </div>
     </div>
-
-    <div class="market-updates">
-      
-        <div class="col-md-6 form-ro market-update-gd">
-            <label for="salle">Choix de la salle</label>        
-            <select name="salle" class="form-control" required>
-            <option selected disabled >Choix de la salle...</option>
-            <optgroup>  
-              <?php    
-                 $con=Connect();
-                 $req=$con->prepare("SELECT * FROM salle") ;
-                 $req->execute();       
-                 while($ligne=$req->fetch()) {
-                  echo "<option>".$ligne['nom_salle']."</option>";
-                }
-              ?>   
-            </optgroup>
-            </select>
-      </div>
-
-      <div class="col-md-6 form-ro market-update-gd">
-            <label for="emplacement">Emplacement</label>
-            <input type="text" class="form-control" name="emplacement" required>
-      </div>
-          
-       <div class="clearfix"> </div>
-    </div>
-
-
-
-   
-    <div class="market-updates">
-      
-      <div class="col-md-6 form-ro market-update-gd">
-            <label for="fabricant">Nom du fabricant</label>
-            <input type="text" class="form-control" name="fabricant" required>
-      </div>
-
-      <div class="col-md-6 form-ro market-update-gd">
-            <label for="Os">Systeme d'exploitation</label>        
-            <select name="Os" class="form-control" required>
-            <option selected disabled >Choix du systeme d'exploitation...</option>
-            <optgroup>  
-              <?php    
-                 $con=Connect();
-                 $req=$con->prepare("SELECT * FROM os") ;
-                 $req->execute();         
-                 while($ligne=$req->fetch()) {
-                  echo "<option value".$ligne['nom_os'].">".$ligne['nom_os']."</option>";
-                }
-              ?>   
-            </optgroup>
-            </select>
-      </div>
-          
-       <div class="clearfix"> </div>
-    </div>
-
-    <div class="market-updates">
-      
-     
-
-      <div class="col-md-12 form-ro market-update-gd">
-           <label for="date_Invetaire">Date d'inventaire</label>
-            <input type="Date" class="form-control" name="date_Invetaire" required>
-      </div>
-          
-       <div class="clearfix"> </div>
-    </div>
-
-
-
-    
-   <button type="submit" class="btn btn-primary my-btn">Valider</button>
-</form>
 <!--market updates end here-->
 
 
+
+<!--mainpage chit-chating-->
+<div class="chit-chat-layer1">
+  <div class="col-md-12 chit-chat-layer1-left">
+      <div class="work-progres">
+             <div class="chit-chat-heading">
+                  Ajouter des salles
+             </div>
+  <div class="table-responsive">
+    <form action="../Controller/GestionAjoutSalle.php" method="POST">
+       <div class="market-updates">      
+        <div class="col-md-12 form-ro market-update-gd">
+              <label for="nom_salle">Nom salle</label>
+              <input type="text" class="form-control" name="nom_salle" required>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+
+      <div class="market-updates"> 
+         <div class="col-md-12 form-ro market-update-gd">  
+              <label for="etage">Etage</label>
+              <input type="text" class="form-control" name="etage" required>
+        </div>    
+         <div class="clearfix"> </div>
+      </div>
+
+     <button type="submit" class="btn btn-primary my-btn">Valider</button>
+    </form>
+   </div>
+  </div>
+
+ </div>
+     
+
+<div class="col-md-12 chit-chat-layer1-rit" style="margin-top: 50px;">     
+  <div class="geo-chart">
+    <section id="charts1" class="charts">
+         <div class="chit-chat-heading">
+                  Systeme d'exploitation
+         </div> 
+        <div class="wrapper-flex">
+        
+  <form action="../Controller/GestionAjoutOs.php" method="POST">
+   <div class="market-updates">  
+      <div class="col-md-12 form-ro market-update-gd">
+         <label for="os">Nom OS</label>
+            <input type="text" class="form-control" name="os" required>
+      </div>
+
+    <div class="clearfix"> </div>
+    </div>
+
+    <div class="market-updates">
+     <div class="col-md-12 form-ro market-update-gd">
+  
+            <label for="version">Version</label>
+            <input type="text" class="form-control" name="version" required>
+       
+      </div>       
+       <div class="clearfix"> </div>
+    </div>
+
+   <button type="submit" class="btn btn-primary my-btn">Valider</button>
+</form>
+        
+            
+        
+        </div><!-- .wrapper-flex -->
+        </section>        
+      </div>
+      </div>
+     <div class="clearfix"> </div>
+</div>
 <!--main page chit chating end here-->
+
+
 </div>
 <!--inner block end here-->
-
-
-
-
 <!--copy rights start here-->
 <div class="copyrights">
 	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
