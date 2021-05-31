@@ -5,7 +5,7 @@
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Statistiques </span></a></li>
+		        <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/index.php"><i class="fa fa-tachometer"></i><span>Statistiques </span></a></li>
 
 
 		        <li id="menu-home" ><a href="index.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Gestion Incident</span></a></li>
@@ -13,8 +13,8 @@
 
 		        <li><a href="#"><i class="fa fa-terminal" aria-hidden="true"></i><span>Inventaire</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		            <li><a href="AjoutOrdinateur.php">Ordinateur</a></li>
-		            <li><a href="os_salle.php">Os & Salle</a></li>		            
+		            <li><a href="/Gestion_parc_informatique/Admin/View/AjoutOrdinateur.php">Ordinateur</a></li>
+		            <li><a href="/Gestion_parc_informatique/Admin/View/os_salle.php">Os & Salle</a></li>		            
 		          </ul>
 		        </li>
 
@@ -34,7 +34,7 @@
 		        </li>
 
 
-
+                <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/View/importationUsers.php"><i class="fa fa-download" aria-hidden="true"></i><span>Importations</span></a></li>
 		        
 		         
 		        
