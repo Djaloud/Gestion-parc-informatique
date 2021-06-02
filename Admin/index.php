@@ -40,8 +40,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
    <div class="left-content">
 	   <div class="mother-grid-inner">
-
-            <?php include("Menu.php") ?>
+            <?php include("Menu.php");                       
+            include("../Login/Model/ConnexionDb.php");                                                        
+                              ?>
 
 <!--inner block start here-->
 
@@ -52,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-6 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-8 market-update-left">
-						<h3>83</h3>
+						<h3>12</h3>
 						<h4>Registered User</h4>
 						<p>Other hand, we denounce</p>
 					</div>
@@ -141,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <?php
 
                             try {
-                                      include("../Login/Model/ConnexionDb.php");
+                                      
                                        $dbh=Connect();
                                         $stmt=$dbh->prepare("SELECT * FROM technicien") ;
                                         $stmt->execute();

@@ -46,7 +46,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
 	   <div class="mother-grid-inner">
 
-            <?php include("../Menu.php") ?>
+            <?php include("../Menu.php"); 
+                                try {
+                                      include("../../Login/Model/ConnexionDb.php");
+                                        $dbh=Connect();
+                                        $stmt=$dbh->prepare("SELECT count(*) as nbr from salle") ;
+                                        $stmt->execute();
+                                        $tble=$stmt->fetch();
+                                        $nombre_salle=$tble['nbr'];
+
+                                        $stmt1=$dbh->prepare("SELECT count(*) as nbr_os from os") ;
+                                        $stmt1->execute();
+                                        $tble1=$stmt1->fetch();
+                                        $nombre_os=$tble1['nbr_os'];
+
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            
+            ?>
 
 
 
@@ -58,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-1">
           <div class="col-md-8 market-update-left">
-            <h3>10</h3>
+            <h3><?php echo $nombre_salle; ?></h3>
             <h4>Nombre de salle</h4>
             <p>la totalité des salles et amphis</p>
           </div>
@@ -71,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-2">
          <div class="col-md-8 market-update-left">
-          <h3>4</h3>
+          <h3><?php echo $nombre_os; ?></h3>
           <h4>Systeme d'exploitation</h4>
           <p>Les differentes types de systeme d'exploitation </p>
           </div>
