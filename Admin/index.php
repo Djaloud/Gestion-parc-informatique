@@ -134,58 +134,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                       <th>Email</th>                                   
                                                                         
                                       <th>Telephone</th>
-                                      <th>Progress</th>
+                                      <th>Action</th>
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Face book</td>
-                                  <td>Malorum</td>                                 
-                                                             
-                                  <td><span class="label label-danger">in progress</span></td>
-                                  <td><span class="badge badge-info">50%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Twitter</td>
-                                  <td>Evan</td>                               
-                                                                  
-                                  <td><span class="label label-success">completed</span></td>
-                                  <td><span class="badge badge-success">100%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Google</td>
-                                  <td>John</td>                                
-                                  
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-warning">75%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>LinkedIn</td>
-                                  <td>Danial</td>                                 
-                                                             
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-info">65%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>Tumblr</td>
-                                  <td>David</td>                                
-                                                                 
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-danger">95%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>6</td>
-                                  <td>Tesla</td>
-                                  <td>Mickey</td>                                  
-                                                             
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-success">95%</span></td>
-                              </tr>
+                                <?php
+
+                            try {
+                                      include("../Login/Model/ConnexionDb.php");
+                                       $dbh=Connect();
+                                        $stmt=$dbh->prepare("SELECT * FROM technicien") ;
+                                        $stmt->execute();
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            while($ligne=$stmt->fetch()){
+                              echo "<tr>";
+                              echo "<td>".$ligne["id_tech"]."</td>";
+                              echo "<td>".$ligne["nom_tech"]."</td>";
+                              echo "<td>".$ligne["email_tech"]."</td>";
+                              echo "<td>".$ligne["tel_tech"]."</td>";
+                              echo '<td>' ;
+              echo "<a href='Contoller/suppression.php?id_tech=".$ligne["id_tech"]." ' onclick='return confirm(\"Voulez vous supprimer?\");' ><img src='supr.png' /></a>";
+              echo"</td>";
+                              echo "</tr>";
+                               
+                            }
+
+                                                                
+                              ?>
+
                           </tbody>
                       </table>
                   </div>
