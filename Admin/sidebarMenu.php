@@ -19,16 +19,11 @@
 		        </li>
 
 
-		        <li><a href="#"><i class="fa fa-cogs"></i><span>Technicien</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul>
-		            <li><a href="/Gestion_parc_informatique/Admin/View/AjouterTechnicien.php">Ajouter technicien</a></li>
-		            <li><a href="portlet.html">Les Techiniciens</a></li>		            
-		          </ul>
-		        </li>
 
 		        <li><a href="#"><i class="fa fa-user"></i><span>Utilisateur</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		            <li><a href="grids.html">Ajouter utilisateur</a></li>
+		            <li><a href="/Gestion_parc_informatique/Admin/View/AjouterTechnicien.php">Ajouter utilisateur</a></li>
+		            <li><a href="portlet.html">Les Techniciens</a></li>	
 		            <li><a href="portlet.html">Les utilisateurs</a></li>		            
 		          </ul>
 		        </li>
