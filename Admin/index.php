@@ -156,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               echo "<td>".$ligne["email_tech"]."</td>";
                               echo "<td>".$ligne["tel_tech"]."</td>";
                               echo '<td>' ;
-              echo "<a href='Contoller/suppression.php?id_tech=".$ligne["id_tech"]." ' onclick='return confirm(\"Voulez vous supprimer?\");' ><img src='supr.png' /></a>";
+              echo "<a href='Controller/GestionSuppressionTech.php?id_tech=".$ligne["id_tech"]." ' onclick='return confirm(\"Voulez vous supprimer?\");' ><img src='supr.png' /></a>";
               echo"</td>";
                               echo "</tr>";
                                
