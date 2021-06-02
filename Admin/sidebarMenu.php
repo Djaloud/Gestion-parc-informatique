@@ -21,7 +21,7 @@
 
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Technicien</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		            <li><a href="grids.html">Ajouter technicien</a></li>
+		            <li><a href="/Gestion_parc_informatique/Admin/View/AjouterTechnicien.php">Ajouter technicien</a></li>
 		            <li><a href="portlet.html">Les Techiniciens</a></li>		            
 		          </ul>
 		        </li>
@@ -36,10 +36,7 @@
 
                 <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/View/importationUsers.php"><i class="fa fa-download" aria-hidden="true"></i><span>Importations</span></a></li>
 		        
-		         
-		        
-		        
-		         
+		         	         
 		      </ul>
 		    </div>
 	 </div>
