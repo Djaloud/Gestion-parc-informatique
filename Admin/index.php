@@ -42,7 +42,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="mother-grid-inner">
             <?php include("Menu.php");                       
             include("../Login/Model/ConnexionDb.php");                                                        
-                              ?>
+                                             try {
+                                      
+                                        $dbh=Connect();
+                                        $stmt=$dbh->prepare("SELECT count(*) as nbr from salle") ;
+                                        $stmt->execute();
+                                        $tble=$stmt->fetch();
+                                        $nombre_salle=$tble['nbr'];
+
+                                        $stmt1=$dbh->prepare("SELECT count(*) as nbr_incident from incident where `etat_incident`='EN ATTENTE' ") ;
+                                        $stmt1->execute();
+                                        $tble1=$stmt1->fetch();
+                                        $nbr_incident=$tble1['nbr_incident'];
+
+                                        $stmt2=$dbh->prepare("SELECT count(*) as nbr_ordi from ordinateur") ;
+                                        $stmt2->execute();
+                                        $tble2=$stmt2->fetch();
+                                        $nombre_ordinateur=$tble2['nbr_ordi'];
+
+                                        $stmt3=$dbh->prepare("SELECT count(*) as nbr_users from users") ;
+                                        $stmt3->execute();
+                                        $tble3=$stmt3->fetch();
+                                        $nombre_users=$tble3['nbr_users'];
+
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            
+             ?>
 
 <!--inner block start here-->
 
@@ -53,9 +81,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-6 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-8 market-update-left">
-						<h3>12</h3>
-						<h4>Registered User</h4>
-						<p>Other hand, we denounce</p>
+						<h3><?php echo $nbr_incident; ?></h3>
+            <h4>Nombre des incidents</h4>
+            <p>la totalité des incidents non traités</p>
 					</div>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"> </i>
@@ -67,9 +95,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-6 market-update-gd">
 				<div class="market-update-block clr-block-2">
 				 <div class="col-md-8 market-update-left">
-					<h3>135</h3>
-					<h4>Daily Visitors</h4>
-					<p>Other hand, we denounce</p>
+					<h3><?php echo $nombre_salle; ?></h3>
+            <h4>Nombre de salle</h4>
+            <p>la totalité des salles et amphis</p>
 				  </div>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-eye"> </i>
@@ -87,9 +115,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-1">
           <div class="col-md-8 market-update-left">
-            <h3>83</h3>
-            <h4>Registered User</h4>
-            <p>Other hand, we denounce</p>
+           <h3><?php echo $nombre_users; ?></h3>
+            <h4>Nombre des utilisateurs</h4>
+            <p>la totalité des utilisateurs de notre parc</p>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-file-text-o"> </i>
@@ -101,9 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-2">
          <div class="col-md-8 market-update-left">
-          <h3>135</h3>
-          <h4>Daily Visitors</h4>
-          <p>Other hand, we denounce</p>
+          <h3><?php echo $nombre_ordinateur; ?></h3>
+            <h4>Nombre d'ordinateurs</h4>
+            <p>Nombre d'ordinateurs  dans notre parc</p>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>

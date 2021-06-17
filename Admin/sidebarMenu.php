@@ -8,7 +8,7 @@
 		        <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/index.php"><i class="fa fa-tachometer"></i><span>Statistiques </span></a></li>
 
 
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Gestion Incident</span></a></li>
+		        <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/View/incident.php"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Gestion Incident</span></a></li>
 
 
 		        <li><a href="#"><i class="fa fa-terminal" aria-hidden="true"></i><span>Inventaire</span><span class="fa fa-angle-right" style="float: right"></span></a>
@@ -23,8 +23,7 @@
 		        <li><a href="#"><i class="fa fa-user"></i><span>Utilisateur</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
 		            <li><a href="/Gestion_parc_informatique/Admin/View/AjouterTechnicien.php">Ajouter utilisateur</a></li>
-		            <li><a href="portlet.html">Les Techniciens</a></li>	
-		            <li><a href="portlet.html">Les utilisateurs</a></li>		            
+		           		            
 		          </ul>
 		        </li>
 
