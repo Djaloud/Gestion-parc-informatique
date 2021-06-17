@@ -46,7 +46,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
 	   <div class="mother-grid-inner">
 
-            <?php include("../Menu.php");include("../../Login/Model/ConnexionDb.php"); ?>
+            <?php include("../Menu.php");
+            //include("../../Login/Model/ConnexionDb.php"); ?>
 
 
 
@@ -82,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <option selected disabled >Choix de la salle...</option>
             <optgroup>  
               <?php    
-                 $con=Connect();
+                 //$con=Connect();
                  $req=$con->prepare("SELECT * FROM salle") ;
                  $req->execute();       
                  while($ligne=$req->fetch()) {
@@ -117,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <option selected disabled >Choix du systeme d'exploitation...</option>
             <optgroup>  
               <?php    
-                 $con=Connect();
+                 //$con=Connect();
                  $req=$con->prepare("SELECT * FROM os") ;
                  $req->execute();         
                  while($ligne=$req->fetch()) {

@@ -48,14 +48,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <?php include("../Menu.php"); 
                                 try {
-                                      include("../../Login/Model/ConnexionDb.php");
-                                        $dbh=Connect();
-                                        $stmt=$dbh->prepare("SELECT count(*) as nbr from salle") ;
+                                      //include("../../Login/Model/ConnexionDb.php");
+                                        //$dbh=Connect();
+                                        $stmt=$con->prepare("SELECT count(*) as nbr from salle") ;
                                         $stmt->execute();
                                         $tble=$stmt->fetch();
                                         $nombre_salle=$tble['nbr'];
 
-                                        $stmt1=$dbh->prepare("SELECT count(*) as nbr_os from os") ;
+                                        $stmt1=$con->prepare("SELECT count(*) as nbr_os from os") ;
                                         $stmt1->execute();
                                         $tble1=$stmt1->fetch();
                                         $nombre_os=$tble1['nbr_os'];

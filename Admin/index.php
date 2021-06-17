@@ -41,26 +41,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
 	   <div class="mother-grid-inner">
             <?php include("Menu.php");                       
-            include("../Login/Model/ConnexionDb.php");                                                        
+            //include("../Login/Model/ConnexionDb.php");                                                        
                                              try {
                                       
-                                        $dbh=Connect();
-                                        $stmt=$dbh->prepare("SELECT count(*) as nbr from salle") ;
+                                        $con=Connect();
+                                        $stmt=$con->prepare("SELECT count(*) as nbr from salle") ;
                                         $stmt->execute();
                                         $tble=$stmt->fetch();
                                         $nombre_salle=$tble['nbr'];
 
-                                        $stmt1=$dbh->prepare("SELECT count(*) as nbr_incident from incident where `etat_incident`='EN ATTENTE' ") ;
+                                        $stmt1=$con->prepare("SELECT count(*) as nbr_incident from incident where `etat_incident`='EN ATTENTE' ") ;
                                         $stmt1->execute();
                                         $tble1=$stmt1->fetch();
                                         $nbr_incident=$tble1['nbr_incident'];
 
-                                        $stmt2=$dbh->prepare("SELECT count(*) as nbr_ordi from ordinateur") ;
+                                        $stmt2=$con->prepare("SELECT count(*) as nbr_ordi from ordinateur") ;
                                         $stmt2->execute();
                                         $tble2=$stmt2->fetch();
                                         $nombre_ordinateur=$tble2['nbr_ordi'];
 
-                                        $stmt3=$dbh->prepare("SELECT count(*) as nbr_users from users") ;
+                                        $stmt3=$con->prepare("SELECT count(*) as nbr_users from users") ;
                                         $stmt3->execute();
                                         $tble3=$stmt3->fetch();
                                         $nombre_users=$tble3['nbr_users'];

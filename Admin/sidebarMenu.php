@@ -18,8 +18,6 @@
 		          </ul>
 		        </li>
 
-
-
 		        <li><a href="#"><i class="fa fa-user"></i><span>Utilisateur</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
 		            <li><a href="/Gestion_parc_informatique/Admin/View/AjouterTechnicien.php">Ajouter utilisateur</a></li>

@@ -49,7 +49,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
      <div class="mother-grid-inner">
 
-            <?php include("../Menu.php");include("../../Login/Model/ConnexionDb.php"); ?>
+            <?php include("../Menu.php");
+            //include("../../Login/Model/ConnexionDb.php"); ?>
 
 <!--inner block start here-->
 
@@ -80,8 +81,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             try {
                                       
-                                       $dbh=Connect();
-                                        $stmt=$dbh->prepare("SELECT id_incident,`commentaire`,`degre_incident`,`date_incident`,`heure`,o.nom_ordinateur,u.nom,`etat_incident` from ordinateur o,users u,incident i where i.`id_ordinateur`=o.`id_ordinateur` and i.`id_user`=u.`id_user`") ;
+                                       //$dbh=Connect();
+                                        $stmt=$con->prepare("SELECT id_incident,`commentaire`,`degre_incident`,`date_incident`,`heure`,o.nom_ordinateur,u.nom,`etat_incident` from ordinateur o,users u,incident i where i.`id_ordinateur`=o.`id_ordinateur` and i.`id_user`=u.`id_user`") ;
                                         $stmt->execute();
                                     }catch(PDOException $e)
                                     {

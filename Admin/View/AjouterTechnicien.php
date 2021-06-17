@@ -46,7 +46,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="left-content">
 	   <div class="mother-grid-inner">
 
-            <?php include("../Menu.php");include("../../Login/Model/ConnexionDb.php"); ?>
+            <?php include("../Menu.php");
+            //include("../../Login/Model/ConnexionDb.php"); ?>
 
 
 
