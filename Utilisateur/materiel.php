@@ -14,10 +14,12 @@
   <!-- Icons -->
   <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
   
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
@@ -30,7 +32,7 @@
         <?php include("topnav.php")  ?> 
         <!-- Search form -->
         <br>
-        <div style="float: right; margin:1em;">
+        <!-- <div style="float: right; margin:1em;">
             <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" >
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge" style="background-color: burlywood;">
@@ -45,7 +47,7 @@
             </button>
           </form>
         </div>
-        <div class="container mb-5 mt-3">
+        <div class="container mb-5 mt-3"> -->
             <table class="table table-striped table-bordered " id="mydata" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>
@@ -99,7 +101,7 @@
             </table>
         </div>
     </div>
-
+    <br><br><br><br>
 
 
 
@@ -114,6 +116,9 @@
   <script src="htpps://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="htpps://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <script src="htpps://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
   <link rel="stylesheet" href="htpps://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"></script>
 
     <script type="text/javascript">
