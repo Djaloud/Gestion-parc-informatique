@@ -104,27 +104,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="chit-chat-layer1">
   <div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                  Exporter des utilisateurs
-                            </div>
-                            <div class="table-responsive">
+                            
+                      <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Exporter des utilisateurs</a></li>
+                        <li><a data-toggle="tab" href="#menu1"> Exporter des du materiels</a></li>
+                      
+                      </ul>
+
+                      <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                         <div class="chit-chat-heading">
+                                    Exporter des utilisateurs
+                          </div>
+
+                             <div class="table-responsive">
                                 <form method="post" action="/Gestion_parc_informatique/Admin/Controller/GestionImportationUsers.php" enctype="multipart/form-data">
                                       <div class="form-group row">
-                                       
                                         <div class="col-md-12">
-                                      <input type="file" name="uploadfile" class="form-control"/>
+                                        <input type="file" name="uploadfile" class="form-control"/>
+                                        </div>
                                       </div>
-                                      </div>
-
-                                        <div class="form-group row">
+                                      <div class="form-group row">
                                           <label class="col-md-3"></label>
                                           <div class="col-md-8">
-                                        <input type="submit" value="Exporter" class="btn btn-primary">
+                                          <input type="submit" value="Exporter" class="btn btn-primary">
+                                         </div>
                                       </div>
-                                    </div>
-                                      </form>
-                            </div>
-             </div>
+                                </form>
+                           </div>
+                        </div>
+
+
+                        <div id="menu1" class="tab-pane fade in">
+                          <div class="chit-chat-heading">
+                                  
+                                  
+                          </div>
+                        </div>
+                        
+                      </div>
+               </div>
       </div>
       
      <div class="clearfix"> </div>

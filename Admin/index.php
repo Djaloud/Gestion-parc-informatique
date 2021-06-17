@@ -40,12 +40,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
    <div class="left-content">
 	   <div class="mother-grid-inner">
+            <?php include("Menu.php");                       
+            include("../Login/Model/ConnexionDb.php");                                                        
+                                             try {
+                                      
+                                        $dbh=Connect();
+                                        $stmt=$dbh->prepare("SELECT count(*) as nbr from salle") ;
+                                        $stmt->execute();
+                                        $tble=$stmt->fetch();
+                                        $nombre_salle=$tble['nbr'];
 
-            <?php include("Menu.php") ?>
+                                        $stmt1=$dbh->prepare("SELECT count(*) as nbr_incident from incident where `etat_incident`='EN ATTENTE' ") ;
+                                        $stmt1->execute();
+                                        $tble1=$stmt1->fetch();
+                                        $nbr_incident=$tble1['nbr_incident'];
 
+                                        $stmt2=$dbh->prepare("SELECT count(*) as nbr_ordi from ordinateur") ;
+                                        $stmt2->execute();
+                                        $tble2=$stmt2->fetch();
+                                        $nombre_ordinateur=$tble2['nbr_ordi'];
 
+                                        $stmt3=$dbh->prepare("SELECT count(*) as nbr_users from users") ;
+                                        $stmt3->execute();
+                                        $tble3=$stmt3->fetch();
+                                        $nombre_users=$tble3['nbr_users'];
 
-
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            
+             ?>
 
 <!--inner block start here-->
 
@@ -53,12 +78,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--market updates updates-->
 	 <div class="market-updates">
-			<div class="col-md-4 market-update-gd">
+			<div class="col-md-6 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-8 market-update-left">
-						<h3>83</h3>
-						<h4>Registered User</h4>
-						<p>Other hand, we denounce</p>
+						<h3><?php echo $nbr_incident; ?></h3>
+            <h4>Nombre des incidents</h4>
+            <p>la totalité des incidents non traités</p>
 					</div>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"> </i>
@@ -67,12 +92,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 
-			<div class="col-md-4 market-update-gd">
+			<div class="col-md-6 market-update-gd">
 				<div class="market-update-block clr-block-2">
 				 <div class="col-md-8 market-update-left">
-					<h3>135</h3>
-					<h4>Daily Visitors</h4>
-					<p>Other hand, we denounce</p>
+					<h3><?php echo $nombre_salle; ?></h3>
+            <h4>Nombre de salle</h4>
+            <p>la totalité des salles et amphis</p>
 				  </div>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-eye"> </i>
@@ -80,93 +105,95 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="clearfix"> </div>
 				</div>
 			</div>
-
-			<div class="col-md-4 market-update-gd">
-				<div class="market-update-block clr-block-3">
-					<div class="col-md-8 market-update-left">
-						<h3>23</h3>
-						<h4>New Messages</h4>
-						<p>Other hand, we denounce</p>
-					</div>
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-envelope-o"> </i>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			
+	
 		   <div class="clearfix"> </div>
 		</div>
 <!--market updates end here-->
+
+
+<div class="market-updates" style="margin-top: 50px;">
+      <div class="col-md-6 market-update-gd">
+        <div class="market-update-block clr-block-1">
+          <div class="col-md-8 market-update-left">
+           <h3><?php echo $nombre_users; ?></h3>
+            <h4>Nombre des utilisateurs</h4>
+            <p>la totalité des utilisateurs de notre parc</p>
+          </div>
+          <div class="col-md-4 market-update-right">
+            <i class="fa fa-file-text-o"> </i>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 market-update-gd">
+        <div class="market-update-block clr-block-2">
+         <div class="col-md-8 market-update-left">
+          <h3><?php echo $nombre_ordinateur; ?></h3>
+            <h4>Nombre d'ordinateurs</h4>
+            <p>Nombre d'ordinateurs  dans notre parc</p>
+          </div>
+          <div class="col-md-4 market-update-right">
+            <i class="fa fa-eye"> </i>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      
+       <div class="clearfix"> </div>
+    </div>
+
+
+
+
 
 <!--mainpage chit-chating-->
 <div class="chit-chat-layer1">
 	<div class="col-md-6 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                  Recent Followers
+                                  Listes des techniciens
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                   <thead>
                                     <tr>
                                       <th>#</th>
-                                      <th>Project</th>
-                                      <th>Manager</th>                                   
+                                      <th>Nom</th>
+                                      <th>Email</th>                                   
                                                                         
-                                      <th>Status</th>
-                                      <th>Progress</th>
+                                      <th>Telephone</th>
+                                      <th>Action</th>
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Face book</td>
-                                  <td>Malorum</td>                                 
-                                                             
-                                  <td><span class="label label-danger">in progress</span></td>
-                                  <td><span class="badge badge-info">50%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Twitter</td>
-                                  <td>Evan</td>                               
-                                                                  
-                                  <td><span class="label label-success">completed</span></td>
-                                  <td><span class="badge badge-success">100%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Google</td>
-                                  <td>John</td>                                
-                                  
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-warning">75%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>LinkedIn</td>
-                                  <td>Danial</td>                                 
-                                                             
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-info">65%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>Tumblr</td>
-                                  <td>David</td>                                
-                                                                 
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-danger">95%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>6</td>
-                                  <td>Tesla</td>
-                                  <td>Mickey</td>                                  
-                                                             
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-success">95%</span></td>
-                              </tr>
+                                <?php
+
+                            try {
+                                      
+                                       $dbh=Connect();
+                                        $stmt=$dbh->prepare("SELECT * FROM technicien") ;
+                                        $stmt->execute();
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            while($ligne=$stmt->fetch()){
+                              echo "<tr>";
+                              echo "<td>".$ligne["id_tech"]."</td>";
+                              echo "<td>".$ligne["nom_tech"]."</td>";
+                              echo "<td>".$ligne["email_tech"]."</td>";
+                              echo "<td>".$ligne["tel_tech"]."</td>";
+                              echo '<td>' ;
+              echo "<a href='Controller/GestionSuppressionTech.php?id_tech=".$ligne["id_tech"]." ' onclick='return confirm(\"Voulez vous supprimer?\");' ><img src='supr.png' /></a>";
+              echo"</td>";
+                              echo "</tr>";
+                               
+                            }
+
+                                                                
+                              ?>
+
                           </tbody>
                       </table>
                   </div>
