@@ -166,10 +166,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="index.php" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Incidents</span> </a>
                     </li>
-
-                    <li>
-                        <a href="incidents_res.php" class=" hvr-bounce-to-right"><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Incidents Resolues</span> </a>
-                    </li>
                    
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Statistiques</span><span class="fa arrow"></span></a>
@@ -300,48 +296,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="mailbox-content bg-info">
                 <table class="table">
                     <thead class="text-center">
-                        <th>ID</th>
-                        <th>Degre</th>
+                        <th>ID Incident R</th>
+                        <th>Date Debut</th>
+                        <th>Date Fin</th>
+                        <th>Cout</th>
                         <th>Commentaire</th>
-                        <th>Date</th>
-                        <th>Heure</th>
-                        <th>Ordinateur</th>
-                        <th>Etat</th>
-                        <th>Approver</th>
+                        <th>ID Incident</th>
                     </thead>
                     <tbody>
                     <?php
-                        $incidents = getAllIncidents();
+                        $incidents = getAllIncidentsResolues();
                         foreach ($incidents as $incident){
                     ?>
                     <tr class="table-row">
                         <td class="table-img">
-                            <?php echo $incident->id_incident ?>
+                            <?php echo $incident->id_ir?>
                         </td>
                         <td class="table-text">
-                            <?php echo $incident->degre_incident ?>
+                            <?php echo $incident->date_debut ?>
+                        </td>
+                        <td class="table-img">
+                            <?php echo $incident->date_fin ?>
+                        </td>
+                        <td class="table-text">
+                            <?php echo $incident->cout ?>
                         </td>
                         <td class="table-img">
                             <?php echo $incident->commentaire ?>
                         </td>
                         <td class="table-text">
-                            <?php echo $incident->date_incident ?>
+                            <?php echo $incident->id_incident ?>
                         </td>
-                        <td class="table-img">
-                            <?php echo $incident->heure ?>
-                        </td>
-                        <td class="table-text">
-                            <?php echo $incident->id_ordinateur ?>
-                        </td>
-                        <td class="table-text">
-                            <?php echo $incident->etat_incident ?>
-                        </td>
-                        <td>
-                            <?php if($incident->etat_incident != "RESOLU"){?>
-                                <a href="validation.php?id=<?php echo $incident->id_incident ?>">
-                            approuver</a>
-                            <?php } ?>
-                        </td>
+                        
                     </tr>
                     <?php
                         }

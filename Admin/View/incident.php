@@ -98,8 +98,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               echo "<td>".$ligne["nom_ordinateur"]."</td>";
                               echo "<td>".$ligne["nom"]."</td>";
                               echo "<td>".$ligne["etat_incident"]."</td>";
-
-                          
+                                ?>
+                                 <td>
+                                <a href="#myModal?id_incident=<?php echo $ligne["id_incident"]?>">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">approuver</button></a>     
+                                </td>
+                          <?php
                               echo "</tr>";
                                
                             }
@@ -127,6 +131,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p><?php echo $_GET["id_incident"];?></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
 <!--copy rights start here-->
 <div class="copyrights">

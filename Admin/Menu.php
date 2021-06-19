@@ -1,4 +1,5 @@
-          <?php                     
+          <?php    
+            include("C:/xampp/htdocs/Gestion_parc_informatique/Login/session.php");                 
             include('C:/xampp/htdocs/Gestion_parc_informatique/Login/Model/ConnexionDb.php');                           
             						 try {
             						 	 $con=Connect();
@@ -57,9 +58,9 @@
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
+												<span class="prfil-img"> </span> 
 												<div class="user-name">
-													<p>Djaloud</p>
+													<p><?php echo $_SESSION['login']; ?></p>
 													<span>Administrateur</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
@@ -68,9 +69,9 @@
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu">
-											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											
 											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-											<li> <a href="../Login/index.html"><i class="fa fa-sign-out"></i> Deconnexion</a> </li>
+											<li> <a href="/Gestion_parc_informatique/Login/deconnexion.php"><i class="fa fa-sign-out"></i> Deconnexion</a> </li>
 										</ul>
 									</li>
 								</ul>

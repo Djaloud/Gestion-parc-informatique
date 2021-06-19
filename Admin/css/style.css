@@ -763,6 +763,14 @@ ul.dropdown-menu {
 }
 .profile_img span.prfil-img{
 	float:left;
+  
+}
+
+.profile_img span.prfil-img img{
+ 
+  border-radius: 90%;
+  width: 50px;
+  height: 50px;
 }
 .user-name{
 	 float:left;

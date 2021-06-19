@@ -2,7 +2,7 @@
      include("../Model/ConnexionDb.php");  
      $log=$_POST['username'];
      $psw=$_POST['password'];
-     echo " $log   $psw ";
+    
      
      try{  
             $con=Connect();
@@ -21,10 +21,16 @@
 
             
             if($stmt1->rowCount()==1) {
+              session_start();
+              $_SESSION['login']=$log;
               header("location:../../Utilisateur/index.php");
             }else if($stmt2->rowCount()==1){
+              session_start();
+              $_SESSION['login']=$log;
               header("location:../../Technicien/index.php");
             }else if($stmt3->rowCount()==1){
+               session_start();
+              $_SESSION['login']=$log;
              header("location:../../Admin/index.php");
             }else{
                  header("location:../index.html");
