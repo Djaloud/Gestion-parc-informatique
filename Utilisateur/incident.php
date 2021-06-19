@@ -31,7 +31,7 @@
         <?php include("topnav.php")  ?>
         <br><br>
         <div class="col-xl-12 col-md-8" style="margin: 0 auto; width:80%" >
-        <form>
+        <form method="post">
                 <div class="form-row" style="margin: 1em;">
                     <div class="col">
                       <textarea class="form-control" placeholder="Commentaire" id="comment" style="height: 50px;" id="floatingTextarea" name="comment"></textarea>
@@ -98,10 +98,10 @@
                 </div>
                 <div class="row mb-3" style="margin-top:40px;margin-left:200px;">
                   <div class="col-xl-6 col-md-12">
-                    <button type="submit" class="btn btn-primary" style="width: 150px;" name="save">Soumettre</button>
+                    <button type="submit" class="btn btn-primary" style="width: 150px;" name="save" >Soumettre</button>
                   </div>
                   <div class="col-xl-6 col-md-12">
-                    <button type="reset" class="btn btn-warning" style="width: 150px;">cancel</button>
+                    <button type="reset" class="btn btn-warning" style="width: 150px;" >cancel</button>
                   </div>
                 </div>
           </form>
@@ -117,13 +117,13 @@
         $degree = $_POST['degree'];
         $date = $_POST['date'];
         $heure = $_POST['heure'];
-        $ordinateur = $_POST['ordinateur'];
-        $utilisateur = $_POST['utilisateur'];
-        $admin = $_POST['admin'];
+        $ordinateur = intval($_POST['ordinateur']);
+        $utilisateur = intval($_POST['utilisateur']);
+        $admin = intval($_POST['admin']);
         $etat = $_POST['etat'];
         
         // recuperer l'id os qui correspond au nom de l'ordinateur     
-        $con=Connect();
+        //$con=Connect();
         $req="select * from ordinateur where numero_serie='$ordinateur'";
         $stmt=$con->prepare($req) ;
         $stmt->execute();
@@ -132,14 +132,35 @@
 
         try {
           $req2="INSERT into incident(`commentaire`,`degre_incident`,`date_incident`,`heure`,`id_ordinateur`,
-          `id_tech`,`id_user`,`id_admin`,`etat_incident`,) values
-         ('$comment',' $degree','$date','$heure','$ordinateur',0,'$utilisateur',' $admin','$etat')";
+          `id_tech`,`id_user`,`id_admin`,`etat_incident`) values
+         ('$comment',' $degree','$date','$heure','$ordinateur',null,'$utilisateur',' $admin','$etat')";
               
                 $stmt2=$con->prepare($req2) ;
                 $stmt2->execute();  
-                header("location:incident.php"); 
+                $message='Votre incident a été ajouté avec succés';
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+                // header("location:incident.php");
                 // $message = "Incident bien enregistré et il est en cours de traitement";
-                // echo "<script type='text/javascript'>alert('$message');</script>"; 
+                // echo "<script type='text/javascript'>alert('$message');</script>";
+                // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+                $headers[] = 'MIME-Version: 1.0';
+                $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+                // En-têtes additionnels
+                $headers[] = 'To: Mary <mary@example.com>, Kelly <kelly@example.com>';
+                $headers[] = 'From: Anniversaire <anniversaire@example.com>';
+                $headers[] = 'Cc: anniversaire_archive@example.com';
+                $headers[] = 'Bcc: anniversaire_verif@example.com';
+
+
+                mail('mohameddjaloud28@gmail.com','Incident crée','<html>
+                <head>
+                <title>Incident</title>
+                </head>
+                <body>
+                <p>Un incident à été detecté</p>
+                </body>
+              </html> ',implode("\r\n", $headers)); 
            }        
         catch(PDOException $e)
             {

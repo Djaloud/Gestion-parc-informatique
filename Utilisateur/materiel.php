@@ -75,8 +75,14 @@
                         <td><?php echo $row['numero_serie'];?></td>
                         <td><?php echo $row['nom_ordinateur'];?></td>
                         <td><?php echo $row['date_inv'];?></td>
-                        <td><?php echo $row['id_salle'];?></td>
-                        <td><?php echo $row['id_os'];?></td>
+                        <td><?php $st=$con->prepare("SELECT * FROM salle WHERE id_salle='$row[4]'");
+                                $st->execute();
+                                $val=$st->fetch();
+                                echo $val[1];;?></td>
+                        <td><?php $st=$con->prepare("SELECT * FROM os WHERE id_os='$row[5]'");
+                                $st->execute();
+                                $val=$st->fetch();
+                                echo $val[1];?></td>
                         <td><?php echo $row['emplacement'];?></td>
                         <td><?php echo $row['fabricant'];?></td>
                         <td><a href="incident.php?ordi=<?php echo $row['id_ordinateur']; ?>" class="btn btn-primary"><i class="fa fa-bug" aria-hidden="true"></i>  Lancer incident</a></button></td>
