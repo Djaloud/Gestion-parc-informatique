@@ -18,7 +18,7 @@ if(isset($_POST['id'])){
     $result =$connexion->prepare($ap_inc)->execute();
     $up_apc = "UPDATE incident SET etat_incident= 'RESOLU' WHERE id_incident = $id";
     $result =$connexion->prepare($up_apc)->execute();
-    header("Location:/Gestion_parc_informatique/Technicien/incidents_res.php");
+    header("Location:/Gestion-parc-informatique/Technicien/incidents_res.php");
     echo json_encode(array('success' => 1));
 }else{
     echo json_encode(array('success' => 0));

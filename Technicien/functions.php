@@ -47,7 +47,7 @@ function getAllIncidents(){
 
 function getAllIncidentsResolues(){
     $connexion =getConnection(NOM,PASS,DB,SERVER);
-    $incs ="SELECT * FROM incident_resolu";
+    $incs ="SELECT i.commentaire as com,ic.commentaire,i.`id_ir`,i.`date_debut`,i.`date_fin`,i.`cout` FROM incident_resolu i,incident ic where i.id_incident=ic.id_incident";
     $result =executeRequest($incs,$connexion);
     return $result;
 }
