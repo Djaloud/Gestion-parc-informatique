@@ -21,7 +21,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"> </script>
 <script src="js/bootstrap.min.js"> </script>
-  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"> 
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
@@ -59,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  	<!--banner-->	
 		     <div class="banner">
 		    	<h2>
-				<a href="index.html">Home</a>
+				<a href="index.php">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<span>Inbox</span>
 				</h2>
@@ -151,7 +152,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                </div>
                <div class="content-mid">
             <div class="mailbox-content bg-info">
-                <table class="table">
+                <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+
                     <thead class="text-center">
                         <th>ID</th>
                         <th>Degre</th>
@@ -1039,6 +1041,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+    <script >
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+</script>
 	<!--//scrolling js-->
 </body>
 </html>
