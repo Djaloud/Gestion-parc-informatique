@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </thead>
                     <tbody>
                     <?php
-                        $incidents = getAllIncidents();
+                        $incidents = getAllIncidents($_SESSION['login']);
                         foreach ($incidents as $incident){
                     ?>
                     <tr class="table-row">

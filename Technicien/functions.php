@@ -4,6 +4,7 @@ define ('PASS', "");
 define ('SERVER', "localhost");
 define ('DB', "piensa");
 
+
 function getConnection($pNom, $pMotPASS, $pDB, $pSERVER){
     $dsn = 'mysql:host=' . $pSERVER . ';dbname=' . $pDB;
     try{
@@ -38,9 +39,9 @@ function Login($login,$password){
     }
     return 0;
 }
-function getAllIncidents(){
+function getAllIncidents($log){
     $connexion =getConnection(NOM,PASS,DB,SERVER);
-    $incs ="SELECT * FROM incident";
+    $incs ="SELECT * from incident WHERE id_tech=(SELECT id_tech from technicien where email_tech='$log')";
     $result =executeRequest($incs,$connexion);
     return $result;
 }
