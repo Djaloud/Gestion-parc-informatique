@@ -25,8 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
-<!--static chart-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"><!--static chart-->
 <script src="../js/Chart.min.js"></script>
 <!--//charts-->
 <!-- geo chart -->
@@ -99,21 +98,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               echo "<td>".$ligne["nom"]."</td>";
                              // echo "<td>".$ligne["etat_incident"]."</td>";
                                 ?>
-                            <td> <?php 
+                         <?php 
                               if($ligne["etat_incident"]=="RESOLU"){
-                               echo "<span style='color:green;font-weight:bold'>".$ligne["etat_incident"]."</span>";
+                               echo "<td> <span style='color:green;font-weight:bold'>".$ligne["etat_incident"]."</span></td> ";
                              }else{
-                               echo "<span style='color:red;font-weight:bold'>".$ligne["etat_incident"]."</span>";
+                               echo " <td>  <span style='color:red;font-weight:bold'>".$ligne["etat_incident"]."</span>  </td> ";
                               }
                              
                            ?>
-                            </td>
-                        <td>
+                       
+
+
+                        
                             <?php if($ligne["id_tech"] == ""){?>
-                                <a href="../View/AffecterTechnicient.php?id_ic=<?php echo $ligne["id_incident"] ?>">
-                            <button class="btn btn-primary">Affecter</button></a>  
+                                <td> <a href="../View/AffecterTechnicient.php?id_ic=<?php echo $ligne["id_incident"] ?>">
+                            <button class="btn btn-primary">Affecter</button></a> </td>  
                             <?php } ?>
-                        </td>
+                       
                           <?php
                               echo "</tr>";
                                
@@ -160,12 +161,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../js/jquery.nicescroll.js"></script>
     <script src="../js/scripts.js"></script>
-     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
      <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
-    <!--//scrolling js-->
-<script src="../js/bootstrap.js"> </script>
-<script>
+     <script >
   $(document).ready( function () {
     $('#myTable').DataTable();
 } );

@@ -141,7 +141,7 @@
                   <span>Incidents</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="../Login/index.html" class="dropdown-item">
+                <a href="/Gestion_parc_informatique/Login/deconnexion.php" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>

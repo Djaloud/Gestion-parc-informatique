@@ -47,7 +47,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <div class="mother-grid-inner">
 
             <?php include("../Menu.php");
-            //include("../../Login/Model/ConnexionDb.php"); ?>
+            //include("../../Login/Model/ConnexionDb.php");
+             try {                                   
+
+                                        $stmt2=$con->prepare("SELECT count(*) as nbr_ordi from ordinateur") ;
+                                        $stmt2->execute();
+                                        $tble2=$stmt2->fetch();
+                                        $nombre_ordinateur=$tble2['nbr_ordi'];
+
+                                        $stmt3=$con->prepare("SELECT count(*) as nbr_users from users") ;
+                                        $stmt3->execute();
+                                        $tble3=$stmt3->fetch();
+                                        $nombre_users=$tble3['nbr_users'];
+
+                                    }catch(PDOException $e)
+                                    {
+                                         echo  $e->getMessage();
+                                    }
+                            
+
+             ?>
 
 <!--inner block start here-->
 
@@ -55,12 +74,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--market updates updates-->
    <div class="market-updates">
-      <div class="col-md-4 market-update-gd">
+      <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-1">
           <div class="col-md-8 market-update-left">
-            <h3>83</h3>
-            <h4>Registered User</h4>
-            <p>Other hand, we denounce</p>
+            <h3><?php echo $nombre_users; ?></h3>
+            <h4>Nombre des utilisateurs</h4>
+            <p>la totalité des utilisateurs de notre parc</p>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-file-text-o"> </i>
@@ -69,26 +88,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
       </div>
 
-      <div class="col-md-4 market-update-gd">
-        <div class="market-update-block clr-block-2">
-         <div class="col-md-8 market-update-left">
-          <h3>135</h3>
-          <h4>Daily Visitors</h4>
-          <p>Other hand, we denounce</p>
-          </div>
-          <div class="col-md-4 market-update-right">
-            <i class="fa fa-eye"> </i>
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
+      
 
-      <div class="col-md-4 market-update-gd">
+      <div class="col-md-6 market-update-gd">
         <div class="market-update-block clr-block-3">
           <div class="col-md-8 market-update-left">
-            <h3>23</h3>
-            <h4>New Messages</h4>
-            <p>Other hand, we denounce</p>
+             <h3><?php echo $nombre_ordinateur; ?></h3>
+            <h4>Nombre d'ordinateurs</h4>
+            <p>Nombre d'ordinateurs  dans notre parc</p>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-envelope-o"> </i>
@@ -103,19 +110,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--mainpage chit-chating-->
 <div class="chit-chat-layer1">
-  <div class="col-md-12 chit-chat-layer1-left">
+  <div class="col-md-6 chit-chat-layer1-left">
                <div class="work-progres">
                             
                       <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#home">Exporter des utilisateurs</a></li>
-                        <li><a data-toggle="tab" href="#menu1"> Exporter des du materiels</a></li>
-                      
+                        <li class="active"><a data-toggle="tab" href="#home">Exporter des utilisateurs</a></li>                    
                       </ul>
 
                       <div class="tab-content">
                         <div id="home" class="tab-pane fade in active">
                          <div class="chit-chat-heading">
-                                    Exporter des utilisateurs
+                                 <span style="color: green;">Exporter des utilisateurs </span>  
                           </div>
 
                              <div class="table-responsive">
@@ -127,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                       </div>
                                       <div class="form-group row">
                                           <label class="col-md-3"></label>
-                                          <div class="col-md-8">
+                                          <div class="col-md-6">
                                           <input type="submit" value="Exporter" class="btn btn-primary">
                                          </div>
                                       </div>
@@ -136,12 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
 
-                        <div id="menu1" class="tab-pane fade in">
-                          <div class="chit-chat-heading">
-                                  
-                                  
-                          </div>
-                        </div>
+                        
                         
                       </div>
                </div>

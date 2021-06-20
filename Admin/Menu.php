@@ -1,6 +1,6 @@
           <?php    
-            include("C:/xampp/htdocs/Gestion_parc_informatique/Login/session.php");                 
-            include('C:/xampp/htdocs/Gestion_parc_informatique/Login/Model/ConnexionDb.php');                           
+           include ($_SERVER["DOCUMENT_ROOT"]."/Gestion_parc_informatique/Login/session.php");                 
+           include ($_SERVER["DOCUMENT_ROOT"]."/Gestion_parc_informatique/Login/Model/ConnexionDb.php");                           
             						 try {
             						 	 $con=Connect();
                                         $stmt8=$con->prepare("SELECT count(*) as nbr_incident from incident where `etat_incident`='EN ATTENTE' ") ;

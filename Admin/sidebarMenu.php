@@ -27,6 +27,10 @@
 
 
                 <li id="menu-home" ><a href="/Gestion_parc_informatique/Admin/View/importationUsers.php"><i class="fa fa-download" aria-hidden="true"></i><span>Importations</span></a></li>
+
+
+                <li id="menu-home" ><a href="/Gestion_parc_informatique/Login/deconnexion.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Deconnexion</span></a></li>
+		        
 		        
 		         	         
 		      </ul>
