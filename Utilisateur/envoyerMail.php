@@ -10,23 +10,15 @@
      $headers[] = 'Bcc: anniversaire_verif@example.com';
 
 
-    mail('amineabdo05@gmail.com','Sujet de mon email','<html>
+    mail('mohameddjaloud28@gmail.com','Incident crée','<html>
     <head>
-     <title>Calendrier des anniversaires pour Août</title>
+     <title>Incident</title>
     </head>
     <body>
-     <p>Voici les anniversaires à venir au mois d\'Août !</p>
-     <table>
-      <tr>
-       <th>Personne</th><th>Jour</th><th>Mois</th><th>Année</th>
-      </tr>
-      <tr>
-       <td>Josiane</td><td>3</td><td>Août</td><td>1970</td>
-      </tr>
-      <tr>
-       <td>Emma</td><td>26</td><td>Août</td><td>1973</td>
-      </tr>
-     </table>
+     <p>Un incident à été detecté</p>
+     
     </body>
    </html> ',implode("\r\n", $headers));
+
+   
 ?>

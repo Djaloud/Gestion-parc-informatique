@@ -42,9 +42,9 @@
                           <label class="input-group-text" for="inputGroupSelect01">Degree</label>
                         </div>
                         <select class="custom-select" id="inputGroupSelect01" name="degree">
-                          <option value="1" selected>Intense</option>
-                          <option value="2">Moyen</option>
-                          <option value="3">Normal</option>
+                          <option value="Intense" selected>Intense</option>
+                          <option value="Moyen">Moyen</option>
+                          <option value="Normal">Normal</option>
                         </select>
                       </div>
                     </div>
@@ -69,7 +69,16 @@
                       ?>" name="ordinateur">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" id="user" placeholder="Utilisateur" name="utilisateur">
+                      <input type="text" class="form-control" id="user" placeholder="Utilisateur" name="utilisateur" value="<?php 
+                      include("../Login/Model/ConnexionDb.php");
+                      $con = connect();
+                      $log = $_SESSION['login'];
+                      $st=$con->prepare("SELECT * FROM users WHERE email='$log'");
+                                $st->execute();
+                                $val=$st->fetch();
+                                $idUser=intval($val[0]);
+                                echo $val[1];
+                        ?>">
                     </div>
                 </div>
                 <div class="row mb-3" style="margin: 1em;">
@@ -79,8 +88,6 @@
                           <label class="input-group-text" for="inputGroupSelect01">Admin</label>
                         </div>
                         <?php
-                            include("../Login/Model/ConnexionDb.php");
-                            $con = connect();
                             $stmn =$con->prepare("SELECT * FROM admin");
                             $stmn->execute();
                             echo "<select name = 'admin' class='custom-select'>";
@@ -128,12 +135,12 @@
         $stmt=$con->prepare($req) ;
         $stmt->execute();
         $val=$stmt->fetch();
-        $id_ordina=$val[0];
+        $id_ordina=intval($val[0]);
 
         try {
           $req2="INSERT into incident(`commentaire`,`degre_incident`,`date_incident`,`heure`,`id_ordinateur`,
           `id_tech`,`id_user`,`id_admin`,`etat_incident`) values
-         ('$comment',' $degree','$date','$heure','$ordinateur',null,'$utilisateur',' $admin','$etat')";
+         ('$comment',' $degree','$date','$heure','$ordinateur',null,'$idUser',' $admin','$etat')";
               
                 $stmt2=$con->prepare($req2) ;
                 $stmt2->execute();  
