@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             try {
                                       
                                        //$dbh=Connect();
-                                        $stmt=$con->prepare("SELECT id_incident,`commentaire`,`degre_incident`,`date_incident`,`heure`,o.nom_ordinateur,u.nom,`etat_incident` from ordinateur o,users u,incident i where i.`id_ordinateur`=o.`id_ordinateur` and i.`id_user`=u.`id_user`") ;
+                                        $stmt=$con->prepare("SELECT id_tech,id_incident,`commentaire`,`degre_incident`,`date_incident`,`heure`,o.nom_ordinateur,u.nom,`etat_incident` from ordinateur o,users u,incident i where i.`id_ordinateur`=o.`id_ordinateur` and i.`id_user`=u.`id_user`") ;
                                         $stmt->execute();
                                     }catch(PDOException $e)
                                     {
@@ -97,12 +97,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               echo "<td>".$ligne["heure"]."</td>";
                               echo "<td>".$ligne["nom_ordinateur"]."</td>";
                               echo "<td>".$ligne["nom"]."</td>";
-                              echo "<td>".$ligne["etat_incident"]."</td>";
+                             // echo "<td>".$ligne["etat_incident"]."</td>";
                                 ?>
-                                 <td>
-                                <a href="#myModal?id_incident=<?php echo $ligne["id_incident"]?>">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">approuver</button></a>     
-                                </td>
+                            <td> <?php 
+                              if($ligne["etat_incident"]=="RESOLU"){
+                               echo "<span style='color:green;font-weight:bold'>".$ligne["etat_incident"]."</span>";
+                             }else{
+                               echo "<span style='color:red;font-weight:bold'>".$ligne["etat_incident"]."</span>";
+                              }
+                             
+                           ?>
+                            </td>
+                        <td>
+                            <?php if($ligne["id_tech"] == ""){?>
+                                <a href="../View/AffecterTechnicient.php?id_ic=<?php echo $ligne["id_incident"] ?>">
+                            <button class="btn btn-primary">Affecter</button></a>  
+                            <?php } ?>
+                        </td>
                           <?php
                               echo "</tr>";
                                
@@ -131,33 +142,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 
-<div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p><?php echo $_GET["id_incident"];?></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
 
 <!--copy rights start here-->
 <div class="copyrights">
@@ -181,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
     <!--//scrolling js-->
 <script src="../js/bootstrap.js"> </script>
-<script >
+<script>
   $(document).ready( function () {
     $('#myTable').DataTable();
 } );
